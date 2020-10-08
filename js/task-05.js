@@ -12,14 +12,11 @@
 function getAllPropValues(array, prop) {
 	"use strict"
 	// Write code under this line
-	
-	return array.reduce(function(result, item) {
-		if (typeof item[prop] != "undefined")   
-		 
-		  result.push(item[prop]);
-		return result;
-	  }, []);
-	}
+
+	return array.reduce(function (result, item) {
+		if (typeof item[prop] != "undefined") result.push(item[prop])
+		return result
+	}, [])
 }
 
 // Объекты и ожидаемый результат
