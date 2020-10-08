@@ -1,33 +1,95 @@
 // Завдання 3
-// Задача 2-3
-// Поиск самого длинного слово в строке с пробелами
-// Напиши функцию findLongestWord(string = ""), которая принимает параметром произвольную строку
-// (в строке будут только слова и пробелы) и возвращает самое длинное слово в этой строке.
+// Задача 3-3
+// Поиск наибольшего значения среди свойств объекта
+// Напиши функцию findBestEmployee(employees), которая принимает объект сотрудников и возвращает
+//  имя самого продуктивного (который выполнил больше всех задач). Сотрудники и кол-во выполненных задач
+//   содержатся как свойства объекта в формате "имя":"кол-во задач".
 
 // Здано:
-function findLongestWord(string = "") {
+
+const findBestEmployee = function (employees) {
+	"use strict"
 	// Write code under this line
-
-	let words = string.split(" ")
 	let max = 0
-	let longestWord = string
-
-	for (const word of words) {
-		let len = word.length
-		if (len > max) {
-			max = len
-			longestWord = word
+	let lider = ""
+	for (const staff in employees) {
+		if (employees[staff] > max) {
+			max = employees[staff]
+			lider = staff
 		}
 	}
-
-	return longestWord
+	return `${lider}`
 }
 
-console.log(findLongestWord("The quick brown fox jumped over the lazy dog"))
-// 'jumped'
+// Объекты и ожидаемый результат
+const developers = {
+	ann: 29,
+	david: 35,
+	helen: 1,
+	lorence: 99,
+}
+console.log(findBestEmployee(developers))
+// 'lorence'
 
-console.log(findLongestWord("Google do a roll"))
-// 'Google'
+const supports = {
+	poly: 12,
+	mango: 17,
+	ajax: 4,
+}
+console.log(findBestEmployee(supports))
+// 'mango'
 
-console.log(findLongestWord("May the force be with you"))
-// 'force'
+const sellers = {
+	lux: 147,
+	david: 21,
+	kiwi: 19,
+	chelsy: 38,
+}
+console.log(findBestEmployee(sellers))
+// 'lux'
+
+// const findBestEmployee = function (employees) {
+// 	"use strict"
+// 	// Write code under this line
+// 	let max = 0
+// 	let lider
+// 	for (const staff in employees) {
+// 		if (employees[staff] > max) {
+// 			max = employees[staff]
+// 			lider = staff
+// 		}
+// 	}
+
+// 	// let best = Object.values(employees)
+// 	// .reduce((max, n) => (n[1] > max[1] ? n : max))
+// 	// .join(": ")
+
+// 	return `${lider}`
+// }
+
+// // Объекты и ожидаемый результат
+// const developers = {
+// 	ann: 29,
+// 	david: 35,
+// 	helen: 1,
+// 	lorence: 99,
+// }
+// console.log(findBestEmployee(developers))
+// // 'lorence'
+
+// const supports = {
+// 	poly: 12,
+// 	mango: 17,
+// 	ajax: 4,
+// }
+// console.log(findBestEmployee(supports))
+// // 'mango'
+
+// const sellers = {
+// 	lux: 147,
+// 	david: 21,
+// 	kiwi: 19,
+// 	chelsy: 38,
+// }
+// console.log(findBestEmployee(sellers))
+// // 'lux'
